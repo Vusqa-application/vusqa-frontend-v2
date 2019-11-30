@@ -1,0 +1,20 @@
+@keyframes animated-grid {
+  from {
+    opacity: 0;
+    
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes animated-grid-wrapper {
+  from {
+    width: 550px;
+    opacity: 1;
+  }
+  to {
+    width: 0px;
+    opacity: 0;
+  }
+}

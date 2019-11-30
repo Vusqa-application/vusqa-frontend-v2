@@ -1,0 +1,24 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // 누구나 접근할 수 있게 <- 테스트 모드
+    match /{document=**} {
+      allow read, write;
+    }
+    
+    
+    
+    // // 로그인한 사람만이 데이터를 생성할 수만 있도록
+    // match /users/{userId} {
+    // 	allow create: if request.auth.uid == userId;
+    // }
+    
+    
+    // 로그인한 사람만이 데이터에 접근 가능하도록
+    match /security_test/{security_testId} {
+    	allow read, write: if request.auth.uid != null;
+    }
+    
+  }
+}
